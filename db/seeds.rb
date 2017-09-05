@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do
+
+    Wiki.create!(
+      title: Faker::FamilyGuy.character,
+      body: Faker::HarryPotter.quote,
+      private: false,
+      user_id: 1
+    )
+end
