@@ -4,14 +4,12 @@
   <div class = "media">
     <div class = "media-body">
     <h4 class = "media-heading">
-      <p><%= link_to wiki.title, wiki %></p>
+      <p><%= link_to (markdown_to_html wiki.title), wiki %></p>
     </h4>
   </div>
 </div>
 <% end %>
 
-<% if policy(@wikis).create? %>
-  <div class = "col-md-4">
-    <%= link_to "New Wiki", new_wiki_path, class: "btn btn-success" %>
-  </div>
-<% end %>
+<div class= "col-md-4">
+  <%= link_to "New Wiki", new_wiki_path, class: "btn btn-success" %>
+</div>

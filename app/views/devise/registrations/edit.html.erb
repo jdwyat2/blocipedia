@@ -36,8 +36,35 @@
   </div>
 <% end %>
 
+</br>
+
+  <div>
+    <div>
+      <h3><%= current_user.role.capitalize %> User</h3>
+    </div>
+    
+    <% if current_user.standard? %>
+      <p>You currenty have a <i><%= current_user.role.capitalize %></i> user profile.</p>
+      <div><%= link_to "Upgrade to Premium", new_charge_path, class: "btn btn-primary btn-lg" %></div>
+    <% elsif current_user.premium? %>
+      <p>You currenty have a <i><%= current_user.role.capitalize %></i> user profile.</p>
+      <div><%= link_to "Not happy with Premium?", downgrade_path, class: "btn btn-default btn-sm" %></div>
+      <% elsif current_user.admin? %>
+      <p>You're an <i>Admin</i> user. You can edit and delete any public or private wikis.</p>
+    <% end %>
+  </div>
+
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+
+
+
+
+
+
+
+
