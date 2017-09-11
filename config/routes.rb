@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'downgrade' => 'charges#downgrade'
   get 'welcome_about' => 'welcome#about'
   root 'welcome#home'
-
+  
+  resources :collaborators, only: [:new, :create, :destroy]
+  
 end
